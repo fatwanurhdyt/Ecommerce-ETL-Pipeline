@@ -48,7 +48,7 @@ To demonstrate the pipeline's reliability, here are the outputs generated from a
 ### 2. Relational Database Load (PostgreSQL)
 > Data successfully loaded and verifiable via `psql` querying in the command line.
 
-![PostgreSQL Output](screenshots/postgreSQL.png)
+![PostgreSQL Output](screenshots/postgres.png)
 
 ### 3. Cloud Storage Load (Google Sheets API)
 > Real-time data availability for business stakeholders.
