@@ -43,22 +43,22 @@ To demonstrate the pipeline's reliability, here are the outputs generated from a
 ### 1. Successful Pipeline Execution (Terminal)
 > The script successfully scraped 50 pages, processed 1000 items, and distributed the data to all three repositories without failing.
 
-![Terminal Execution](screenshots/terminal.jpg)
+![Terminal Execution](screenshots/terminal.png)
 
 ### 2. Relational Database Load (PostgreSQL)
 > Data successfully loaded and verifiable via `psql` querying in the command line.
 
-![PostgreSQL Output](screenshots/postgres.jpg)
+![PostgreSQL Output](screenshots/postgres.png)
 
 ### 3. Cloud Storage Load (Google Sheets API)
 > Real-time data availability for business stakeholders.
 
-![Google Sheets Output](screenshots/gsheets.jpg)
+![Google Sheets Output](screenshots/gsheets.png)
 
 ### 4. Flat File Generation (CSV)
 > Cleaned data exported to a local `.csv` file.
 
-![CSV Output](screenshots/csv.jpg)
+![CSV Output](screenshots/csv.png)
 
 ---
 
