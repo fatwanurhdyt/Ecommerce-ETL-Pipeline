@@ -1,0 +1,62 @@
+How to Run the Fashion Studio ETL Pipeline Script
+
+1. Environment Setup
+-----------------------
+- Ensure Python 3 is installed.
+- (Optional but recommended) Use a Virtual Environment:
+  - Create a virtual environment in the project folder (if not already created):
+    python3 -m venv pemda
+  - Activate the virtual environment:
+    - On macOS/Linux:
+      source pemda/bin/activate
+    - On Windows:
+      pemda\Scripts\activate
+  - Once the virtual environment is active, install dependencies with the command:
+    pip install -r requirements.txt
+- Ensure PostgreSQL is installed and running on localhost at port 5432.
+- Create a PostgreSQL database named 'fashion_db' and a user 'wafanur' with the password 'wafanur444' (or adjust the configuration in load.py).
+- Prepare the Google Service Account credential file (.json format) for Google Sheets access.
+Place the file in the root folder with the name:
+  etl-fashion-project-460320-9dd4cb557cc2.json
+
+2. PostgreSQL Database Setup
+----------------------------
+- Login to PostgreSQL:
+  psql -U wafanur -d postgres
+- Create database:
+  CREATE DATABASE fashion_db;
+- Ensure the user 'wafanur' has access to the database.
+
+3. Running the Script
+--------------------
+- Ensure the virtual environment is active (if using one).
+- Run the ETL pipeline with:
+  python3 main.py
+- This process will execute:
+  - Extract: scraping products from 50 pages of fashion-studio.dicoding.dev
+  - Transform: cleaning and formatting the scraped data
+  - Load: saving data to CSV, PostgreSQL, and Google Sheets
+
+4. Running Tests
+----------------------
+- Ensure the virtual environment is active (if using one).
+- Run unit tests in the tests folder:
+  python3 -m pytest tests
+- Run test coverage on the tests folder:
+  coverage run -m pytest tests
+  coverage report -m
+
+5. Output
+---------
+- A CSV file named 'fashion_data.csv' will be created in the working directory.
+- Data is saved to the 'products' table in the 'fashion_db' database.
+- Data is also uploaded to Google Sheets via the following spreadsheet:
+  https://docs.google.com/spreadsheets/d/1JAnu0DVGOaoWZSxZ-q1s6M-2KtIAH16JT6_yzoZNAQs
+
+6. Additional Notes
+-------------------
+- If a database connection error occurs, ensure PostgreSQL is running and the access configuration is correct.
+- If uploading to Google Sheets fails, ensure:
+  - The .json credential file is valid and located in the root folder.
+- The spreadsheet is accessible by the Google Service account used.
+- To change the number of scraped pages or the delay between requests, modify the parameters in the scrape_fashion() function in main.py.

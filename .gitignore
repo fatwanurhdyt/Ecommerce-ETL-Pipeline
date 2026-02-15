@@ -1,0 +1,9 @@
+etl-fashion-project-460320-9dd4cb557cc2.json
+__pycache__/
+pemda/
+*.csv
+.env
+bin/
+include/
+lib/
+pyvenv.cfg
